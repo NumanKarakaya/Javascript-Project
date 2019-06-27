@@ -1,0 +1,20 @@
+<html>
+    <title>Searching</title>
+    <body>
+        <p id="p1"></p>
+        <button onclick="search()"></button>
+        <p id="p2"></p>
+    </body>
+    <script>
+    function search(){
+
+        var str=document.getElementById('p1').innerHTML;
+        var konum=str.search("r");
+        document.getElementById("p2").innerHTML=konum;
+
+    }
+    
+    
+    </script>
+
+</html>
