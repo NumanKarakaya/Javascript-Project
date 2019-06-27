@@ -1,0 +1,119 @@
+<html>
+<title>Taş,Kağıt,Makas Oyunu</title>
+<head>
+        <title>KAĞIT, TAŞ, MAKAS OYUNU</title>
+        <meta charset="utf-8">
+        <style>
+        body{
+        background: #e74c3c;
+        }
+        #liste img{
+        padding:5px;
+        border:1px #232333 solid;
+         
+        }
+        #sonuc{
+        float:left;
+        width: 260px;
+        height: 260px;
+        font-size:2em;
+        padding:20px;
+        background: #f1c40f;
+         
+        }
+        #pc-sonuc{
+        float:left;
+         
+        }
+         
+        </style>
+        </head>
+<body>
+        <div id="liste">
+                <img src="./images/kagit.jpg" id="kagit" width="300" height="300" data-id="0">
+                <img src="./images/makas.jpg" id="makas" width="300" height="300" data-id="1">
+                <img src="./images/tas.jpg" id="tas" width="300" height="300" data-id="2">
+                </div> 
+                <div id="pc-sonuc">
+                <img src="" id="pc-secim" width="300" height="300" alt="pc seçimi">
+                </div>
+                <div id="sonuc">
+                 
+                </div>
+</body>
+
+<script>
+
+var liste=["kagit.jpg","makas.jpg","tas.jpg"];
+var kagit=document.getElementById("kagit");
+var makas=document.getElementById("makas");
+var tas=document.getElementById("tas");
+var pcSecim=document.getElementById("pc-secim");
+var sonucYazdir=document.getElementById("sonuc");
+
+kagit.onclick=secimYap;
+makas.onclick=secimYap;
+tas.onclick=secimYap;
+ 
+ 
+function secimYap(){
+var pc= RasgeleKagit();
+console.log(pc);
+ 
+/*dizi sıralamasını kullanmak daha mantıklıydı fakat yukarıdaki resimlerin sıralamsı değişince hata verecektir.*/
+/*bu karşılaştırmada da rsimlerin isimlerine dikkat etmek gerekiyor.*/
+var secim= this.dataset.id;
+if(pc==0 && secim==0)
+{
+sonuc="ikinizde aynı seçimi yaptınız";
+}
+else if(pc==0 && secim==1)
+{
+sonuc="Kazandın, makas kağıdı keser";
+}
+else if(pc==0 && secim==2)
+{
+sonuc="Kaybettin, kağıt taşı sarar";
+}
+else if(pc==1 && secim==0)
+{
+sonuc="Kaybettin, makas kağıdı keser";
+}
+else if(pc==1 && secim==1)
+{
+sonuc="ikinizde aynı seçimi yaptınız";
+}
+else if(pc==1 && secim==2)
+{
+sonuc="Kazandın, Taş makası kırar";
+}
+else if(pc==2 && secim==0)
+{
+sonuc="Kazandın, kağıt taşı sarar";
+}
+else if(pc==2 && secim==1)
+{
+sonuc="Kaybettin, Taş makası kırar";
+}
+else if(pc==2 && secim==2)
+{
+sonuc="ikinizde aynı seçimi yaptınız";
+}
+ 
+sonucYazdir.innerHTML=sonuc;
+}
+ 
+function RasgeleKagit(){
+var sayi= Math.round(Math.random()*2);
+pcSecim.src=liste[sayi]; 
+ 
+return sayi;
+}
+ 
+
+</script>
+
+
+</html>
+
+
