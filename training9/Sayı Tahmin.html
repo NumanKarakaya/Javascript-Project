@@ -1,0 +1,39 @@
+<html>
+    <title>Km-Mil Converter</title>
+
+    <body>
+        <input type="text" id="tahmin1" placeholder="Hadi tuttuğum sayıyı tahmin et!">
+        <input type="button" value="Tahmin Et" onclick="hesapla()" id="hesapla">
+
+    </body> 
+    <script>
+
+    function hesapla(){
+       
+        var uretsayi=Math.floor((Math.random()*100)+1);
+        console.log(uretsayi);
+
+        var tahminimsayi=document.getElementById('tahmin1').value;
+        tahminimsayi=Number(tahminimsayi);
+
+        if(tahminimsayi<uretsayi){
+            alert('Lütfen sayıyı arttır');
+
+        }
+
+        else if(tahminimsayi>uretsayi){
+
+            alert('Lütfen sayıyı azalt');
+
+        }
+
+        else{
+            alert('tebrikler sayıyı doğru bildiniz');
+          
+        }
+
+    }
+    
+    
+    </script>
+</html>
