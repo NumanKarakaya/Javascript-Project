@@ -1,0 +1,37 @@
+<html>
+    <title>Training</title>
+
+    <body>
+
+        Eleman sayısı(n):<br>
+        <input type="text" id="elemansayi"><br>
+        Seçim sayısı(r):<br>
+        <input type="text" id="secimsayi"><br>
+        <input type="button" id="Hesapla" value="Hesapla!">
+<p id="kutu"></p>
+
+    </body>
+    <script>
+
+    function faktor(sayi){
+        var sonuc=1;
+        for(var i=1;i<=sayi;i++){
+            sonuc*=i;
+
+        }
+        return sonuc;
+
+    }
+    
+
+
+var btn=document.getElementById('Hesapla');
+btn.onclick=function(){
+    var n=Number(document.getElementById('elemansayi').value);
+    var r=Number(document.getElementById('secimsayi').value);
+    var sonuc2=(faktor(n)/(faktor(r)*faktor(n-r)));
+    document.getElementById('kutu').innerHTML=sonuc2;
+}
+    
+    </script>
+</html>
